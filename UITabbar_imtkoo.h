@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UITabbar_imtkoo_delegate;
+
 @interface tabItem_imtkoo : NSObject
 @property (nonatomic) NSInteger index;
 @property (nonatomic, strong) NSString* title;
@@ -36,7 +38,7 @@
 @property (nonatomic) CGFloat text_offset_y;
 @property (nonatomic) CGFloat tabImage_offset_y;
 @property (nonatomic) CGFloat selectedImage_offset_y;
-
+@property (nonatomic, assign) id<UITabbar_imtkoo_delegate> delegate;
 
 
 - (id)initWithFrame:(CGRect)frame buttonCount:(NSInteger)count;
@@ -52,4 +54,8 @@
 - (void)setColorForText:(UIColor *)_textColor;
 
 - (void)setColorForHighlightText:(UIColor*)_textColor;
+@end
+
+@protocol UITabbar_imtkoo_delegate
+- (void)UITabbar_imtkoo_callback_forIndex:(NSInteger)index;
 @end

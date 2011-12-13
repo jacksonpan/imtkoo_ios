@@ -57,6 +57,7 @@
 @synthesize text_offset_y;
 @synthesize tabImage_offset_y;
 @synthesize selectedImage_offset_y;
+@synthesize delegate;
 
 - (void)dealloc
 {
@@ -190,6 +191,7 @@
         {
             curButtonSelected = tabItem.index;
             NSLog(@"tab:%d", curButtonSelected);
+            [delegate UITabbar_imtkoo_callback_forIndex:curButtonSelected];
             break;
         }
     }
